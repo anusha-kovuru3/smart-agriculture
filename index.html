@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SmartAgriAI Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dashboard-page">
+  <header class="dashboard-header">
+    <h1>SmartAgriAI Dashboard</h1>
+    <span class="date-time" id="dateTime">Loading time...</span>
+  </header>
+
+  <main class="dashboard-grid">
+    <!-- Top Stats -->
+    <section class="top-cards">
+      <div class="card moisture">💧<br>Soil Moisture<br><span id="moisture">35%</span></div>
+      <div class="card ph">🧪<br>pH Level<br><span id="phLevel">6.2</span></div>
+      <div class="card nitrogen">🧬<br>N'Levels<br><span id="nLevels">20/15/10</span></div>
+      <div class="card rain">🌧️<br>Rain Forecast<br><span id="rain">85%</span></div>
+    </section>
+
+    <!-- Live Data + Chart -->
+    <section class="main-content">
+      <div class="sensor-data">
+        <h3>Real-Time Sensor Data</h3>
+        <ul>
+          <li>Soil Moisture: <span id="rt-moisture">31.2%</span></li>
+          <li>pH Level: <span id="rt-ph">6.4</span></li>
+          <li>N Levels: <span id="rt-n">18</span></li>
+          <li>P Levels: <span id="rt-p">13</span></li>
+          <li>K Levels: <span id="rt-k">9</span></li>
+          <li>Temperature: <span id="rt-temp">28.5°C</span></li>
+        </ul>
+      </div>
+
+      <div class="chart-section">
+        <h3>LSTM Prediction</h3>
+        <canvas id="moistureChart" height="160"></canvas>
+        <p>Irrigate on Day 3, Predicted drop in moisture to 22%</p>
+      </div>
+    </section>
+
+    <!-- Blockchain + Actions -->
+    <section class="footer-widgets">
+      <div class="blockchain-log">
+        <h3>Blockchain Log</h3>
+        <table>
+          <tr><th>Parameter</th><th>Hash</th><th>Timestamp</th></tr>
+          <tr><td>pH Level</td><td>0c9aa09o51149</td><td>2024-04-29</td></tr>
+          <tr><td>Soil Moisture</td><td>0x33aa3b114a0</td><td>2024-04-29</td></tr>
+          <tr><td>Temperature</td><td>0x33aa3b11438</td><td>2024-04-29</td></tr>
+        </table>
+      </div>
+
+      <div class="recommendations">
+        <h3>Recommended Actions</h3>
+        <ul>
+          <li>✅ Add potassium fertilizer</li>
+          <li>✅ Irrigate before rainfall</li>
+        </ul>
+        <button class="btn export">Export Data</button>
+        <button class="btn retrain">Retrain Model</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

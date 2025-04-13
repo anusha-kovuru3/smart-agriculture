@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartAgriAI Login</title>
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body class="login-page">
+  <div class="login-container">
+    <h2>SmartAgriAI Login</h2>
+    <form onsubmit="return login(event)">
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+    <p id="error" class="error-msg"></p>
+  </div>
+
+  <script>
+    function login(event) {
+      event.preventDefault();
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+
+      // Simple static login for testing
+      if (user === "admin" && pass === "1234") {
+        window.location.href = "dashboard.html";
+      } else {
+        document.getElementById("error").textContent = "Invalid credentials.";
+      }
+    }
+  </script>
+</body>
+</html>
